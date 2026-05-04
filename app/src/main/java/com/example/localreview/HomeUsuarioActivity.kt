@@ -17,9 +17,9 @@ class HomeUsuarioActivity : AppCompatActivity() {
         val btnAdd = findViewById<Button>(R.id.btn_menu_add)
         val btnAnalises = findViewById<Button>(R.id.btn_menu_analises)
 
-        val cardBarDoZe = findViewById<LinearLayout>(R.id.card_bar_do_ze)
-        val cardEspetinho = findViewById<LinearLayout>(R.id.card_espetinho_joao);
-        val cardBoteco = findViewById<LinearLayout>(R.id.card_boteco_central);
+        val cardBarDoZe = findViewById<androidx.cardview.widget.CardView>(R.id.card_bar_do_ze)
+        val cardEspetinho = findViewById<androidx.cardview.widget.CardView>(R.id.card_espetinho_joao)
+        val cardBoteco = findViewById<androidx.cardview.widget.CardView>(R.id.card_boteco_central)
 
         cardBarDoZe.setOnClickListener {
             val intent = Intent(this, DetalhesLocalActivity::class.java)

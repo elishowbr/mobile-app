@@ -17,9 +17,9 @@ class MinhasAnalisesActivity : AppCompatActivity() {
         val btnAdd = findViewById<Button>(R.id.btn_menu_add)
         val btnAnalises = findViewById<Button>(R.id.btn_menu_analises)
 
-        val cardBrownie = findViewById<LinearLayout>(R.id.card_ama_brownie)
-        val cardLanchonete = findViewById<LinearLayout>(R.id.card_lanchonete)
-        val cardFondue = findViewById<LinearLayout>(R.id.card_fondue)
+        val cardBrownie = findViewById<androidx.cardview.widget.CardView>(R.id.card_ama_brownie)
+        val cardLanchonete = findViewById<androidx.cardview.widget.CardView>(R.id.card_lanchonete)
+        val cardFondue = findViewById<androidx.cardview.widget.CardView>(R.id.card_fondue)
 
         cardBrownie.setOnClickListener {
             val intent = Intent(this, MinhaAnaliseDetalheActivity::class.java)

@@ -1,29 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="#F5F5F5">
+    android:background="#F8F9FA">
 
-    <!-- Título Fixo no Topo -->
-    <TextView
-        android:id="@+id/titulo_home"
+    <!-- Cabeçalho Estilizado conforme RNF02 -->
+    <LinearLayout
+        android:id="@+id/header_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Locais Próximos"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:padding="16dp"
+        android:orientation="vertical"
         android:background="#FFFFFF"
-        android:elevation="4dp" />
+        android:padding="20dp"
+        android:elevation="4dp">
 
-    <!-- Área de Conteúdo (A lista rolável) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descobrir"
+            android:textSize="12sp"
+            android:textColor="#2196F3"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1" />
+
+        <TextView
+            android:id="@+id/titulo_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Locais Próximos"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#212121" />
+    </LinearLayout>
+
+    <!-- Lista de Locais (ScrollView com Padding para respiro visual) -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/titulo_home"
+        android:layout_below="@id/header_container"
         android:layout_above="@+id/menu_inferior"
+        android:clipToPadding="false"
         android:padding="16dp">
 
         <LinearLayout
@@ -31,97 +51,163 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Mock 1: Bar do Zé -->
-            <LinearLayout
+            <!-- Card 1: Bar do Zé (RF06) -->
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_bar_do_ze"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#FFFFFF"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Bar do Zé"
-                    android:textStyle="bold"
-                    android:textSize="18sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nota: ⭐ 4.8"
-                    android:textSize="14sp"
-                    android:textColor="#FF9800"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Distância: 1.2 km"
-                    android:textSize="14sp"
-                    android:textColor="#666666"/>
-            </LinearLayout>
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
 
-            <!-- Mock 2: Espetinho do João -->
-            <LinearLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="#E9ECEF" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Bar do Zé"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="#212121"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Buteco • Espetinho"
+                            android:textSize="12sp"
+                            android:textColor="#6C757D"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="4dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ 4.8" android:textStyle="bold" android:textColor="#FF9800"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" • 1.2 km" android:textColor="#ADB5BD"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card 2: Espetinho do João -->
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_espetinho_joao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#FFFFFF"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Espetinho do João"
-                    android:textStyle="bold"
-                    android:textSize="18sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nota: ⭐ 4.5"
-                    android:textSize="14sp"
-                    android:textColor="#FF9800"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Distância: 2.5 km"
-                    android:textSize="14sp"
-                    android:textColor="#666666"/>
-            </LinearLayout>
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
 
-            <!-- Mock 3: Boteco Central -->
-            <LinearLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="#E9ECEF" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Espetinho do João"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="#212121"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Comida de Rua"
+                            android:textSize="12sp"
+                            android:textColor="#6C757D"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="4dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ 4.5" android:textStyle="bold" android:textColor="#FF9800"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" • 2.5 km" android:textColor="#ADB5BD"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card 3: Boteco Central (O que estava faltando!) -->
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_boteco_central"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#FFFFFF"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp">
-                <TextView
-                    android:layout_width="wrap_content"
+                android:layout_marginBottom="32dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Boteco Central"
-                    android:textStyle="bold"
-                    android:textSize="18sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nota: ⭐ 4.2"
-                    android:textSize="14sp"
-                    android:textColor="#FF9800"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Distância: 3.0 km"
-                    android:textSize="14sp"
-                    android:textColor="#666666"/>
-            </LinearLayout>
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="#E9ECEF" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Boteco Central"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="#212121"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Bar • Petiscos"
+                            android:textSize="12sp"
+                            android:textColor="#6C757D"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="4dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ 4.2" android:textStyle="bold" android:textColor="#FF9800"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" • 3.0 km" android:textColor="#ADB5BD"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </ScrollView>
 
-    <!-- O Menu Inferior Pregado na Base -->
+    <!-- Menu Inferior conforme RNF01 -->
     <LinearLayout
         android:id="@+id/menu_inferior"
         android:layout_width="match_parent"
@@ -129,7 +215,7 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:background="#FFFFFF"
-        android:elevation="8dp">
+        android:elevation="12dp">
 
         <Button
             android:id="@+id/btn_menu_inicio"
@@ -138,7 +224,8 @@
             android:layout_weight="1"
             android:text="Início"
             android:background="#00000000"
-            android:textColor="#2196F3"/>
+            android:textColor="#2196F3"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_menu_add"
@@ -146,21 +233,17 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="+"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:textSize="28sp"
             android:background="#00000000"
-            android:textColor="#ff6750a4"
-            />
+            android:textColor="#6750A4" />
 
         <Button
             android:id="@+id/btn_menu_analises"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Meu Perfil"
+            android:text="Perfil"
             android:background="#00000000"
-            android:textColor="#333333"
-            android:textSize="12sp" />
-
+            android:textColor="#495057" />
     </LinearLayout>
 </RelativeLayout>
